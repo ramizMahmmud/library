@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="add">Add Book</button>
+    <div class="navbar">
+        <div class="hero">
+            <p class="logo">LIBRARY</p>
+            <button class="login">Log In</button>
+        </div>
+    </div>
+    <div class="add">+ Add Books</div>
 
     <div class="container">
 
@@ -19,16 +25,18 @@
                 Book Info
             </div>
 
-            <form action="#" class="card-form">   
+            <form action="" class="card-form">   
                 <input type="text" name="title" id="title" placeholder="Title">      
                 <input type="text" name="author" id="author" placeholder="Author">   
                 <input type="number" name="page" id="page" placeholder="Page">
+                <input type="checkbox" name="read" id="read">
+                <label for="read">I have read it</label>
                 <button type="submit" id="submit">Submit</button>
             </form>
-
         </div>
     </div>
     
+    <div class="book-list" id="book-list"></div>
     <script src="./main.js"></script>
 </body>
 </html>
