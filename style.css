@@ -118,3 +118,20 @@ input {
     padding: 15px;
     border-radius: 8px;
 }
+
+
+.read-status{
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin: 10px auto;
+    display: block;
+}
+.read-btn {
+    background-color: rgb(33, 221, 8);
+
+}
+
+.not-read-btn{
+    background-color: red;
+}
