@@ -47,6 +47,10 @@ function showBooks() {
         const bookAuthor = document.createElement('div');
         const bookPage = document.createElement('div');
         const bookRead = document.createElement('button');
+        const removeBook = document.createElement('div');
+        removeBook.innerHTML = '&times;';
+        removeBook.classList.add('remove-book');
+      
 
         bookName.innerHTML = `Name: ${myLibrary[i].name}`;
         bookAuthor.innerHTML = `Author: ${myLibrary[i].author}`;
@@ -58,7 +62,8 @@ function showBooks() {
             bookRead.classList.add('read-btn');
         }
         else bookRead.classList.add('not-read-btn');
-
+        
+        bookCard.appendChild(removeBook);
         bookCard.appendChild(bookName);
         bookCard.appendChild(bookAuthor);
         bookCard.appendChild(bookPage);
@@ -78,7 +83,14 @@ function showBooks() {
                 event.target.classList.add('read-btn');
                 event.target.innerHTML = 'Read'
             }
-        })
+        });
+
+        // Remove book card from window
+        removeBook.addEventListener('click',function(){
+           let removeDiv = this.parentElement;
+           document.getElementById('book-list').removeChild(removeDiv);
+
+        }) 
     }
 
 }

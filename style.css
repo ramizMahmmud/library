@@ -1,41 +1,47 @@
-*{
+* {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.navbar{
+.navbar {
     width: 100%;
     height: auto;
-    background-color:  rgba(202, 243, 229, 0.7);;
+    background-color: rgba(202, 243, 229, 0.7);
+    ;
 }
-.hero{
+
+.hero {
     width: 70%;
     height: 60px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:15px ;
+    padding: 15px;
 }
-.logo{
+
+.logo {
     font-size: 25px;
 }
-.login{
+
+.login {
     font-size: 20px;
     height: 30px;
 }
+
 .add {
     width: 20%;
-    
+
     font-size: 20px;
-    margin:10px auto;
+    margin: 10px auto;
 }
+
 .container {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(56, 109, 91,0.7);
+    background-color: rgba(56, 109, 91, 0.7);
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
@@ -43,32 +49,38 @@
     justify-content: center;
     align-items: center;
 }
+
 .card {
     border: 1px solid gray;
-    width: 250px; 
-    height: 300px;  
+    width: 250px;
+    height: 300px;
     border-radius: 8px;
     padding: 10px;
     background-color: rgb(56, 109, 91);
     position: relative;
     text-align: center;
 }
-.close-btn{
-    font-size: 25px;
-    font-weight: 600;
-    position: absolute;
+.close-btn {
     top: 10px;
     right: 10px;
+    position: absolute;
+    background-color: rgb(27, 85, 66);
+    cursor: pointer;
+    padding: 0px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
     text-align: center;
     transform: rotate(45deg);
-    background-color:  rgb(27, 85, 66);
-    padding: 0px;
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    cursor: pointer;
+    font-size: 25px;
+    font-weight: 600;
 }
-.card-heading{
+
+
+
+
+
+.card-heading {
     margin-top: 30px;
     margin-bottom: 20px;
     font-size: 25px;
@@ -83,17 +95,18 @@ input {
     border-radius: 8px;
 }
 
-#read{
+#read {
     margin: 0;
     display: inline;
 }
+
 #submit {
     margin-top: 15px;
     padding: 7px 30%;
     font-size: 20px;
     color: white;
     border-radius: 8px;
-    background-color:rgb(19, 73, 69);
+    background-color: rgb(19, 73, 69);
 }
 
 .book-list {
@@ -101,11 +114,11 @@ input {
     width: 70%;
     margin: 0 auto;
     display: flex;
-    gap: 15px;
-    justify-content: space-between;
+    gap: 20px 55px;
+    
     flex-wrap: wrap;
     margin-top: 50px;
-    
+
 }
 
 .book-card {
@@ -117,21 +130,31 @@ input {
     border: 1px gray solid;
     padding: 15px;
     border-radius: 8px;
+    
 }
 
 
-.read-status{
+.read-status {
     font-size: 16px;
     padding: 5px 10px;
     border-radius: 8px;
     margin: 10px auto;
     display: block;
 }
+
 .read-btn {
     background-color: rgb(33, 221, 8);
-
+    
 }
 
-.not-read-btn{
+.not-read-btn {
     background-color: red;
+}
+.remove-book {
+   background-color: rgb(139, 139, 139);
+   width: 30px;
+   height: 30px;
+   color: white;
+   border-radius: 50%;
+   margin-left: 270px;
 }
