@@ -2,7 +2,7 @@ const myLibrary = [];
 
 let lengthOfArry;
 
-let i = 0;
+
 
 function Book(name, author, page, read) {
     this.name = name;
@@ -41,7 +41,8 @@ function addBooks(event) {
 
 function showBooks() {
     lengthOfArry = myLibrary.length;
-    for (i; i < lengthOfArry; i++) {
+    document.getElementById('book-list').innerHTML = '';
+    for (let i = 0; i < lengthOfArry; i++) {
         const bookCard = document.createElement('div');
         const bookName = document.createElement('div');
         const bookAuthor = document.createElement('div');
@@ -50,19 +51,23 @@ function showBooks() {
         const removeBook = document.createElement('div');
         removeBook.innerHTML = '&times;';
         removeBook.classList.add('remove-book');
-      
 
-        bookName.innerHTML = `Name: ${myLibrary[i].name}`;
-        bookAuthor.innerHTML = `Author: ${myLibrary[i].author}`;
-        bookPage.innerHTML = `Page: ${myLibrary[i].page}`;
-        bookRead.innerHTML = `${myLibrary[i].read}`;
+        
+        
+        bookName.textContent = `Name: ${myLibrary[i].name}`;
+        bookAuthor.textContent = `Author: ${myLibrary[i].author}`;
+        bookPage.textContent = `Page: ${myLibrary[i].page}`;
+        bookRead.textContent = `${myLibrary[i].read}`;
+        
+        bookName.classList.add('book-name');
+        bookAuthor.classList.add('book-author');
 
         bookRead.classList.add('read-status');
         if (myLibrary[i].read === 'Read') {
             bookRead.classList.add('read-btn');
         }
         else bookRead.classList.add('not-read-btn');
-        
+
         bookCard.appendChild(removeBook);
         bookCard.appendChild(bookName);
         bookCard.appendChild(bookAuthor);
@@ -76,26 +81,39 @@ function showBooks() {
             if (event.target.classList.contains('read-btn')) {
                 event.target.classList.remove('read-btn');
                 event.target.classList.add('not-read-btn');
-                event.target.innerHTML = 'Not Read'
+                event.target.textContent = 'Not Read'
 
             } else {
                 event.target.classList.remove('not-read-btn');
                 event.target.classList.add('read-btn');
-                event.target.innerHTML = 'Read'
+                event.target.textContent = 'Read'
             }
         });
 
         // Remove book card from window
-        removeBook.addEventListener('click',function(){
-           let removeDiv = this.parentElement;
-           document.getElementById('book-list').removeChild(removeDiv);
+        removeBook.addEventListener('click', function () {
+            let removeDiv = this.parentElement;
+            document.getElementById('book-list').removeChild(removeDiv);
 
-        }) 
+            let bookNameText = removeDiv.querySelector('.book-name').textContent.replace('Name: ', '');
+            let bookAuthorText = removeDiv.querySelector('.book-author').textContent.replace('Author: ', '');
+
+            let indexToRemove = findBookIndex(bookNameText, bookAuthorText);
+
+            if (indexToRemove !==-1){
+                myLibrary.splice(indexToRemove, 1);
+            }
+
+
+        });
+
+        function findBookIndex(bookName, bookAuthor) {
+            return myLibrary.findIndex(book =>
+                book.name === bookName && book.author === bookAuthor
+                );
+        }
     }
-
 }
-
-
 document.querySelector('.add').addEventListener('click', showCard);
 document.querySelector('.close-btn').addEventListener('click', hideCard);
 document.querySelector('.card-form').addEventListener('submit', addBooks);
